@@ -9,7 +9,8 @@ bot.startRTM(function(err,bot,payload) {
   }
 
 });
-controller.hears(['yo mama (.*)'],'direct_message,direct_mention,mention,ambient',function(bot, message) {
+
+controller.hears(['^yo mama (.*)'],'direct_message,direct_mention,mention,ambient',function(bot, message) {
     var matches = message.text.match(/yo mama (.*)/i);
     var name = matches[1];
 
