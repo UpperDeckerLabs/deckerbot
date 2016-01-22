@@ -9,12 +9,37 @@ var fatJokes = [
     'that Weight Watchers said I give up.'
 ];
 
+var fatJokeStack = [];
+
 function getFatJoke() {
-    return getRandomItemFromArray(fatJokes);
+    if (fatJokeStack.length === 0) {
+        Array.prototype.push.apply(fatJokeStack, shuffledArray(fatJokes));
+    }
+    return fatJokeStack.pop();
 }
 
-function getRandomItemFromArray(array) {
-    return array[Math.floor(Math.random()*array.length)];
+function shuffledArray(array) {
+    var toShuffle = [];
+    Array.prototype.push.apply(toShuffle, array);
+
+    // http://stackoverflow.com/a/2450976
+    var currentIndex = toShuffle.length;
+    var randomIndex;
+    var temporaryValue;
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = toShuffle[currentIndex];
+        toShuffle[currentIndex] = toShuffle[randomIndex];
+        toShuffle[randomIndex] = temporaryValue;
+    }
+
+    return toShuffle;
 }
 
 exports.getFatJoke = getFatJoke;
