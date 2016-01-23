@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "botkit": "0.0.5"
+  },
+  "devDependencies": {
+    "node-env-file": "^0.1.8"
   }
 }

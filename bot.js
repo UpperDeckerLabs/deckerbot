@@ -1,9 +1,14 @@
+if(!process.env.UPPERDECKER_SLACK_TOKEN){
+	var env = require('node-env-file');
+	env(__dirname + '/.env');
+};
+
 var Botkit = require('botkit');
 var jokes = require('./jokes');
 var controller = Botkit.slackbot();
 
 var bot = controller.spawn({
-  token: the_slack_integration_token
+  token: process.env.UPPERDECKER_SLACK_TOKEN
 })
 
 bot.startRTM(function(err,bot,payload) {
