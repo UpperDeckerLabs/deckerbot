@@ -1,4 +1,4 @@
-if(!process.env.DATABASE_URL){
+if(!process.env.UPPERDECKER_SLACK_TOKEN){
 	var env = require('node-env-file');
 	env(__dirname + '/.env');
 };
