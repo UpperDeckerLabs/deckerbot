@@ -1,7 +1,7 @@
 {
   "main":"app.js",
   "dependencies": {
-    "botkit": "0.0.5"
+    "botkit": "0.0.11"
   },
   "devDependencies": {
     "node-env-file": "^0.1.8"

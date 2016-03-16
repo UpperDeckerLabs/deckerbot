@@ -5,6 +5,7 @@ if(!process.env.UPPERDECKER_SLACK_TOKEN){
 
 var Botkit = require('botkit');
 var jokes = require('./jokes');
+var api = require('./http');
 var controller = Botkit.slackbot();
 
 var bot = controller.spawn({
@@ -25,3 +26,4 @@ controller.hears(['^yo mama (.*)'],'direct_message,direct_mention,mention,ambien
     bot.reply(message,name + '\'s mama is so fat ' + joke);
 });
 
+api.initializeHttp(bot);
